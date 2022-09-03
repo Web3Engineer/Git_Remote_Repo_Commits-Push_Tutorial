@@ -1,0 +1,117 @@
+*Dedicated my Bro Jake 👊
+*I spelled alot of words wrong 😆
+*Tested for Windows 11 & 10
+*Legend: """" = console output
+            $ = console line
+
++++GitHub Remote CL Repository Commit/Push Tutorial+++
+---dependencies: nodejs, gitBash, VS code ide, github VS extension---
+(On Windows there are sometimes multiple version of SSH installed, It results in conflict when using git)
+First open CMD in admin mode to set your local machines enviroment vairable:
+$ setx /m GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
+
+now lets set your GitHub profile to accept your remote commands(use your github email):
+To do this we Generate a RSA SSH key pair, github prefers the "Ed25519 algorithm"
+$ ssh-keygen -t ed25519 -C "YOUR_EMAIL@example.com"
+OR: For using rsa for systems that don't support Ed25519:
+$ ssh-keygen -t rsa -b 4096 -C “YOUR_EMAIL@example.com”
+$ ""Generating public/private rsa key pair.""
+$ ""Enter file in which to save the key (C:\Users\USER_NAME/.ssh/id_rsa):""
+just tap ENTER on your keybourd so it saves to the default save location printed
+
+$ ""Enter passphrase (empty for no passphrase):""
+enter your passphrase, then press ENTER
+$ ""Enter same passphrase again:""
+enter your passphrase again, then press ENTER
+
+$ ""Your identification has been saved in C:\Users\USER_NAME/.ssh/id_rsa.""
+$ ""Your public key has been saved in C:\Users\USER_NAME/.ssh/id_rsa.pub.""
+$ ""The key fingerprint is:""
+$ ""SHA256:6hOX00000Cqt17if0000000000hK6SnGk3O40000YK0 YOUR_EMAIL@example.com""
+
+now navigate to the saved file location (C:\Users\USER_NAME/.ssh/~) and open your "~/.ssh/id_rsa.pub" with notepad
+copy the raw RSA SSH key text inside
+navigate to your github profile online and open "settings", then "SSH & GPG keys"
+"add new SSH key" paste your RSA SSH key inside and save
+
+still inside your github profile create a new Repository folder, ex: "NewRepo"
+but leave it empty, that just means dont upload any files yet, we will do that on the CL via nodejs
+copy the SSH URL and save to notepad text file, ex: git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
+
+navigate to VS code:
+create local directory folder in VS (or point to existing folder), ex: 'localFolder'
+inside this folder create/insert all files to be uploaded to GitHub, ex: 'indexExample.js'
+
+**NOTE 'master' is just the branch name we are pushing to**
+open terminal:
+CD to 'localFolder'
+
+Before we can access your github remote abilities you must first tell github who you are,
+to set your account's default identity:
+$ ~\localFolder> git config user.email "YOUR_EMAIL@example.com"
+tap ENTER
+$ ~\localFolder> git config user.name "USER_NAME"
+tap ENTER
+
+$ ~\localFolder> git init -b master
+$ ""Initialized empty Git repository in C:/Users/USER_NAME/Desktop/localFolder/.git/""
+
+lets test the empty Initialized repo:
+$ ~\localFolder> git status
+$ """"On branch master
+$     No commits yet
+$     Untracked files:
+$         indexExample.js   
+$     nothing added to commit but untracked files present (use "git add" to track)""""
+
+now that we have git pointed to our file lets stage the commit:
+$ ~\localFolder> git add .  <<<***the dot just means 'current directory')
+
+now lets test our staged commit:
+$ ~\localFolder> git status
+$ """"On branch master
+$     No commits yet
+$     Changes to be committed:
+$     new file: indexExample.js""""
+**notice that our indexExample.js file is now prepended with 'new file:'
+
+after your successful file staging you are ready to commit:
+$ ~\localFolder> git commit -m "my first commit"
+$ """"[master (root-commit) 55fe556] my first commit
+$     2 files changed, 28 insertions(+)
+$     create mode 100644 indexExample.js""""
+
+test the file commit:
+$ ~\localFolder> git log
+$ """"commit 55fe55600000d1980f7000008ec8a61eae900000 (HEAD -> master)
+      Author: USER_NAME <YOUR_EMAIL@example.com>
+      Date:   Sat Sep 7 07:07:07 2022 -0700
+      my first commit""""
+
+lets configure our github with our remote local commits:
+$ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
+
+to verify that our origin point is correct run:
+$ ~\localFolder> git remote -v
+$ """"origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (fetch)
+$     origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (push)""""
+
+lets push the configured files to your github profile remotely now:
+$ ~\localFolder> git push origin master
+$ """"Enter passphrase for key '/c/Users/USER_NAME/.ssh/id_rsa':""""
+
+type your passphrase then tap ENTER
+
+$ """"Enumerating objects: 5, done.
+      Counting objects: 100% (5/5), done.
+      Delta compression using up to 8 threads
+      Compressing objects: 100% (3/3), done.
+      Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
+      Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+      remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+      To github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
+      5500056..e800077  master -> master""""
+
+Now go refresh your GitHub profile page and you will see your new repo!!!
+
+Congratulations!!! 🗺️ 🪂
