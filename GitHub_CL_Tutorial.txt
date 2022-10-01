@@ -77,7 +77,7 @@ $     Changes to be committed:
 $     new file: indexExample.js""""
 **notice that our indexExample.js file is now prepended with 'new file:'
 
-after your successful file staging you are ready to commit:
+after your successful file staging you are ready to commit(git commit) to branch 'master'(-m) with the arbitrary comment "my first commit":
 $ ~\localFolder> git commit -m "my first commit"
 $ """"[master (root-commit) 55fe556] my first commit
 $     2 files changed, 28 insertions(+)
