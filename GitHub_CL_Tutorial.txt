@@ -66,8 +66,8 @@ $     Untracked files:
 $         indexExample.js   
 $     nothing added to commit but untracked files present (use "git add" to track)""""
 
-now that we have git pointed to our file lets stage the commit:
-$ ~\localFolder> git add .  <<<***the dot just means 'current directory')
+now that we have git pointed to your file lets stage the commit:
+$ ~\localFolder> git add "indexExample.js"  **NOTE: You can use the dot "." symbol to grab all the files in your localFolder folder.**
 
 now lets test our staged commit:
 $ ~\localFolder> git status
