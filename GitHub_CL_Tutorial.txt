@@ -38,13 +38,18 @@ still inside your github profile create a new Repository folder, ex: "NewRepo"
 but leave it empty, that just means dont upload any files yet, we will do that on the CL via nodejs
 copy the SSH URL and save to notepad text file, ex: git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
 
+navigate to your desktop:
+create a local directory folder on your desktop called 'localFolder'
 navigate to VS code:
-create local directory folder in VS (or point to existing folder), ex: 'localFolder'
-inside this folder create/insert all files to be uploaded to GitHub, ex: 'indexExample.js'
+open it in VS Code (or point to existing folder)
+inside this folder create/insert all files to be uploaded on your GitHub, ex: 'indexExample.js'
 
-**NOTE 'master' is just the branch name we are pushing to**
-open terminal:
-CD to 'localFolder'
+open your terminal & Change Directory(cd) to your new folder:
+$ cd /Desktop/localFolder
+
+First lets initialize git(git init) with a branch(-b) named 'master'
+$ ~\localFolder> git init -b master
+$ ""Initialized empty Git repository in ~/Desktop/localFolder/.git/""
 
 Before we can access your github remote abilities you must first tell github who you are,
 to set your account's default identity:
@@ -52,9 +57,6 @@ $ ~\localFolder> git config user.email "YOUR_EMAIL@example.com"
 tap ENTER
 $ ~\localFolder> git config user.name "USER_NAME"
 tap ENTER
-
-$ ~\localFolder> git init -b master
-$ ""Initialized empty Git repository in C:/Users/USER_NAME/Desktop/localFolder/.git/""
 
 lets test the empty Initialized repo:
 $ ~\localFolder> git status
