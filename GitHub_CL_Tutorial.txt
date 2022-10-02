@@ -1,17 +1,29 @@
 *Dedicated my Bro Jake 👊
 *I spelled alot of words wrong 😆
-*Tested for Windows 11 & 10
+*Tested for Windows 11, 10 & Ubuntu 20.04, 22.04
 *Legend: """" = console output
             $ = console line
 
 +++GitHub Remote CL Repository Commit/Push Tutorial+++
----dependencies: nodejs, gitBash, VS code ide, github VS extension---
-(On Windows there are sometimes multiple version of SSH installed, It results in conflict when using git)
-First open CMD in admin mode to set your local machines enviroment vairable:
+---dependencies: nodejs, gitBash, VS code ide, git---
+
+First download/install nodejs & git to your local machine
+ For 'node.js'
+   Windows: https://nodejs.org/dist/v16.17.1/node-v16.17.1-x86.msi
+     Linux: $ sudo apt update && sudo apt upgrade
+            $ sudo apt install nodejs
+ For 'git'
+   Windows: https://git-scm.com/download/win
+     Linux: $ sudo apt update && sudo apt upgrade
+            $ sudo apt install git-all      
+
+(On WINDOWS there are sometimes multiple version of SSH installed, It results in conflict when using git)
+so open CMD in admin mode(CTRL+SHIFT+ENTER) to set your local machines enviroment vairable:
 $ setx /m GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 
 now lets set your GitHub profile to accept your remote commands(use your github email):
-To do this we Generate a RSA SSH key pair, github prefers the "Ed25519 algorithm"
+to do this we Generate a RSA SSH key pair, github prefers the "Ed25519 algorithm"
+open your terminal:
 $ ssh-keygen -t ed25519 -C "YOUR_EMAIL@example.com"
 OR: For using rsa for systems that don't support Ed25519:
 $ ssh-keygen -t rsa -b 4096 -C “YOUR_EMAIL@example.com”
@@ -30,12 +42,13 @@ $ ""The key fingerprint is:""
 $ ""SHA256:6hOX00000Cqt17if0000000000hK6SnGk3O40000YK0 YOUR_EMAIL@example.com""
 
 now navigate to the saved file location (C:\Users\USER_NAME/.ssh/~) and open your "~/.ssh/id_rsa.pub" with notepad
-copy the raw RSA SSH key text inside
+copy the raw (RSA or ed25519)  SSH key text inside the SSH file ending in '.pub', this stands for 'public'
 navigate to your github profile online and open "settings", then "SSH & GPG keys"
-"add new SSH key" paste your RSA SSH key inside and save
+"add new SSH key" paste your copied SSH key inside and save
 
 Now open up your terminal to authenticate your SSH connection from your local machine to your GitHub profile:
 $ ssh -T git@github.com
+successful authentication prints the below statement
 $ ""Hi YOUR_EMAIL! You've successfully authenticated, but GitHub does not provide shell access.""
 if you get an error please refer to this artical: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
 
@@ -49,19 +62,24 @@ navigate to VS code:
 open it in VS Code (or point to existing folder)
 inside this folder create/insert all files to be uploaded on your GitHub, ex: 'indexExample.js'
 
-open your terminal & Change Directory(cd) to your new folder:
+open your terminal:
+before you can access your github remote abilities you must set your account's default identity,
+$ git config --global user.email "YOUR_EMAIL@example.com"
+tap ENTER
+$ git config --global user.name "USER_NAME"
+tap ENTER
+to make sure you have your default ID properly set run this:
+$ git config --list
+$ ""user.name=USER_NAME
+    user.email=YOUR_EMAIL@example.com""
+
+
+Change Directory(cd) to your new folder:
 $ cd /Desktop/localFolder
 
-First lets initialize git(git init) with a branch(-b) named 'master'
+initialize git(git init) with a branch(-b) named 'master'
 $ ~\localFolder> git init -b master
 $ ""Initialized empty Git repository in ~/Desktop/localFolder/.git/""
-
-Before we can access your github remote abilities you must first tell github who you are,
-to set your account's default identity:
-$ ~\localFolder> git config user.email "YOUR_EMAIL@example.com"
-tap ENTER
-$ ~\localFolder> git config user.name "USER_NAME"
-tap ENTER
 
 lets test the empty Initialized repo:
 $ ~\localFolder> git status
