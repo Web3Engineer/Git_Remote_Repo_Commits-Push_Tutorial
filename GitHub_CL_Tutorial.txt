@@ -8,11 +8,11 @@
 ---dependencies: nodejs, gitBash, VS code ide, git---
 
 First download/install nodejs & git to your local machine
- For 'node.js'
+ For the 'node.js' dependency...
    Windows: https://nodejs.org/dist/v16.17.1/node-v16.17.1-x86.msi
      Linux: $ sudo apt update && sudo apt upgrade
             $ sudo apt install nodejs
- For 'git'
+ For the 'git' dependency...
    Windows: https://git-scm.com/download/win
      Linux: $ sudo apt update && sudo apt upgrade
             $ sudo apt install git-all      
