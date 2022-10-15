@@ -21,6 +21,18 @@ First download/install nodejs & git to your local machine
 so open CMD in admin mode(CTRL+SHIFT+ENTER) to set your local machines enviroment vairable:
 $ setx /m GIT_SSH C:\Windows\System32\OpenSSH\ssh.exe
 
+open your terminal:
+before you can access your github remote abilities you must configure your account's default identity
+(USE YOUR GITHUB.COM PROFILE EMAIL & NAME)
+$ git config --global user.email "YOUR_EMAIL@example.com"
+tap ENTER
+$ git config --global user.name "USER_NAME"
+tap ENTER
+to make sure you have your default ID properly set run this:
+$ git config --list
+$ ""user.name=USER_NAME
+    user.email=YOUR_EMAIL@example.com""
+
 now lets set your GitHub profile to accept your remote commands(use your github email):
 to do this we Generate a RSA SSH key pair, github prefers the "Ed25519 algorithm"
 open your terminal:
@@ -63,18 +75,7 @@ open it in VS Code (or point to existing folder)
 inside this folder create/insert all files to be uploaded on your GitHub, ex: 'indexExample.js'
 
 open your terminal:
-before you can access your github remote abilities you must set your account's default identity,
-$ git config --global user.email "YOUR_EMAIL@example.com"
-tap ENTER
-$ git config --global user.name "USER_NAME"
-tap ENTER
-to make sure you have your default ID properly set run this:
-$ git config --list
-$ ""user.name=USER_NAME
-    user.email=YOUR_EMAIL@example.com""
-
-
-Change Directory(cd) to your new folder:
+Change Directory(cd) to your new folder
 $ cd /Desktop/localFolder
 
 initialize git(git init) with a branch(-b) named 'master'
