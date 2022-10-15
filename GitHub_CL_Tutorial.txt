@@ -58,18 +58,18 @@ copy the raw (RSA or ed25519)  SSH key text inside the SSH file ending in '.pub'
 navigate to your github profile online and open "settings", then "SSH & GPG keys"
 "add new SSH key" paste your copied SSH key inside and save
 
-Now open up your terminal to authenticate your SSH connection from your local machine to your GitHub profile:
+now open up your terminal to authenticate your SSH connection from your local machine to your GitHub profile:
 $ ssh -T git@github.com
 successful authentication prints the below statement
 $ ""Hi YOUR_EMAIL! You've successfully authenticated, but GitHub does not provide shell access.""
 if you get an error please refer to this artical: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
 
-When you have successfully authenticated go to your github profile & create a new Repository folder named "NewRepo"
+create a new Repository folder named "NewRepo"
 but leave it empty, that just means dont upload any files yet, we will do that via the CL
 copy the SSH URL and save it to a text file: "git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git"
 
 navigate to your desktop:
-create a local directory folder on your desktop called 'localFolder'
+create a directory folder on your desktop called 'localFolder'
 navigate to VS code:
 open it in VS Code (or point to existing folder)
 inside this folder create/insert all files to be uploaded on your GitHub, ex: 'indexExample.js'
