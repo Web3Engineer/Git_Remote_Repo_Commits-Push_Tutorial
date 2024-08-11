@@ -68,14 +68,6 @@ create a new Repository folder named "NewRepo"
 but leave it empty, that just means dont upload or create any files yet, we will do that via the CL interface
 copy the SSH URL and save it to a text file: "git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git"
 
-Go back to your terminal to configure your github origin point:
-$ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
-
-to verify that our origin point is correct run:
-$ ~\localFolder> git remote -v
-$ """"origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (fetch)
-$     origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (push)""""
-
 navigate to your desktop:
 create a directory folder on your desktop called 'localFolder'
 navigate to VS code:
@@ -89,6 +81,14 @@ $ cd /Desktop/localFolder
 initialize git(git init) with a branch(-b) named 'master'
 $ ~\localFolder> git init -b master
 $ ""Initialized empty Git repository in ~/Desktop/localFolder/.git/""
+
+go back to your terminal to configure your github origin point:
+$ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
+
+to verify that our origin point is correct run:
+$ ~\localFolder> git remote -v
+$ """"origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (fetch)
+$     origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (push)""""
 
 lets test the empty Initialized repo:
 $ ~\localFolder> git status
