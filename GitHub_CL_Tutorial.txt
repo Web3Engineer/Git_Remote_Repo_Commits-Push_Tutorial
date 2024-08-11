@@ -55,7 +55,7 @@ $ ""SHA256:6hOX00000Cqt17if0000000000hK6SnGk3O40000YK0 YOUR_EMAIL@example.com""
 
 now navigate to the saved file location (C:\Users\USER_NAME/.ssh/~) and open your "~/.ssh/id_rsa.pub" with notepad
 copy the raw (RSA or ed25519) (PUBLIC KEY!) SSH key text inside the SSH file ending in '.pub', this stands for 'public'
-navigate to your github profile online and open "settings", then "SSH & GPG keys"
+navigate to your github profile online and open "settings", then "SSH & GPG keys" **NOTE: Make sure the "Key Type" option is set to "Authentication Key"! NOT "Signing Key"!**
 "add new SSH key" paste your copied SSH key inside and save
 
 now open up your terminal to authenticate your SSH connection from your local machine to your GitHub profile:
