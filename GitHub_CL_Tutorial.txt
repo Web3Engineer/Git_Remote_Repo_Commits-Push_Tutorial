@@ -82,7 +82,7 @@ initialize git(git init) with a branch(-b) named 'master'
 $ ~\localFolder> git init -b master
 $ ""Initialized empty Git repository in ~/Desktop/localFolder/.git/""
 
-go back to your terminal to configure your github origin point:
+go back to your terminal to configure your remote github origin point:
 $ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
 
 to verify that our origin point is correct run:
