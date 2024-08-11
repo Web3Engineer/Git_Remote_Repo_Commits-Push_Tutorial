@@ -65,7 +65,7 @@ $ ""Hi YOUR_EMAIL! You've successfully authenticated, but GitHub does not provid
 if you get an error please refer to this artical: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
 
 create a new Repository folder named "NewRepo"
-but leave it empty, that just means dont upload any files yet, we will do that via the CL
+but leave it empty, that just means dont upload any files yet, we will do that via the CL interface
 copy the SSH URL and save it to a text file: "git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git"
 
 navigate to your desktop:
