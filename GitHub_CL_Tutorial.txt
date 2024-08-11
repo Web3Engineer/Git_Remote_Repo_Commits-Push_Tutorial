@@ -68,6 +68,14 @@ create a new Repository folder named "NewRepo"
 but leave it empty, that just means dont upload or create any files yet, we will do that via the CL interface
 copy the SSH URL and save it to a text file: "git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git"
 
+Go back to your terminal to configure your github origin point:
+$ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
+
+to verify that our origin point is correct run:
+$ ~\localFolder> git remote -v
+$ """"origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (fetch)
+$     origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (push)""""
+
 navigate to your desktop:
 create a directory folder on your desktop called 'localFolder'
 navigate to VS code:
@@ -114,13 +122,6 @@ $ """"commit 55fe55600000d1980f7000008ec8a61eae900000 (HEAD -> master)
       Date:   Sat Sep 7 07:07:07 2022 -0700
       my first commit""""
 
-lets configure our github with our remote local commits:
-$ ~\localFolder> git remote add origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git
-
-to verify that our origin point is correct run:
-$ ~\localFolder> git remote -v
-$ """"origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (fetch)
-$     origin git@github.com:YOUR_GITHUB_PROFILE_NAME/NewRepo.git (push)""""
 
 lets push the configured files to your github profile remotely now:
 $ ~\localFolder> git push origin master
